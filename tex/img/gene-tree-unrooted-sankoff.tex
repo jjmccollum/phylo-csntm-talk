@@ -1,0 +1,122 @@
+\documentclass[tikz]{standalone}
+\usetikzlibrary{decorations,positioning}
+\tikzset{witReading/.style={align=center}}
+\tikzset{directed/.style={->,>=stealth,line width=1.0pt}}% for directed edges
+\usepackage{color} % for custom colors
+\definecolor{darkgreen}{RGB}{0,128,0}
+\usepackage{polyglossia} % for language-specific hyphenation and punctuation rules
+\setmainlanguage[variant=american]{english} % Specify main language of document (this will affect hyphentation and punctuation)
+\setotherlanguage[variant=polytonic]{greek} % Add any other languages that you plan to use in your thesis
+\setromanfont[Ligatures=Common, Numbers={Tabular,OldStyle}]{EBGaramond12}[
+	Extension=.otf,
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic
+]
+\newfontfamily\greekfont{EBGaramond12}[
+	Extension=.otf,
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic
+]
+\renewcommand{\textgreek}[1]{{\selectlanguage{greek}#1}}
+\usepackage{realscripts} % Update \textsubscript and \textsuperscript to use true OpenType-accessed sub- and superscripts
+
+\begin{document}
+\begin{tikzpicture}[node distance=2.5cm]
+	\node[witReading] (costs_rows) at (-6.5,2) {%
+		\begin{tabular}{r}
+			{\color{purple}\textgreek{ιησου}}\\
+			{\color{red}\textgreek{χριστου ιησου}}\\
+			{\color{blue}\textgreek{ιησου χριστου}}\\
+			{\color{darkgreen}\textgreek{χριστου}}
+		\end{tabular}
+	};
+	\node[witReading, rotate=45] (costs_col_1) at (-4.75,3.25) {{\color{purple}\textgreek{ιησου}}};
+	\node[witReading, rotate=45] (costs_col_2) at (-3.75,3.625) {{\color{red}\textgreek{χριστου ιησου}}};
+	\node[witReading, rotate=45] (costs_col_3) at (-3.125,3.625) {{\color{blue}\textgreek{ιησου χριστου}}};
+	\node[witReading, rotate=45] (costs_col_4) at (-2.75,3.375) {{\color{darkgreen}\textgreek{χριστου}}};
+	\node[witReading] (costs) at (-4,2) {%
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$0$ & $3$ & $3$ & $5$\\
+			\hline
+			$10$ & $0$ & $5$ & $2$\\
+			\hline
+			$2$ & $5$ & $0$ & $10$\\
+			\hline
+			$5$ & $3$ & $3$ & $0$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (archetype) at (0,0) {\textgreek{ω}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$8$ & $7$ & $7$ & $8$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (alpha) at (-4,-2) {\textgreek{α}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$8$ & $2$ & $12$ & $6$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (beta) at (4,-2) {\textgreek{β}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$6$ & $10$ & $0$ & $6$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (a) at (-6,-4) {a\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$\infty$ & $0$ & $\infty$ & $\infty$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (gamma) at (-2,-4) {\textgreek{γ}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$8$ & $2$ & $15$ & $3$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (b1) at (2,-4) {b\textsubscript{1}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$\infty$ & $\infty$ & $0$ & $\infty$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (b2) at (6,-4) {b\textsubscript{2}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$\infty$ & $\infty$ & $0$ & $\infty$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (c1) at (-4,-6) {c\textsubscript{1}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$\infty$ & $\infty$ & $\infty$ & $0$\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (c2) at (0,-6) {c\textsubscript{2}\\
+		\begin{tabular}{|c|c|c|c|}
+			\hline
+			$\infty$ & $0$ & $\infty$ & $\infty$\\
+			\hline
+		\end{tabular}
+	};
+	\draw (archetype) edge[directed] (alpha);
+	\draw (archetype) edge[directed] (beta);
+	\draw (alpha) edge[directed] (a);
+	\draw (alpha) edge[directed] (gamma);
+	\draw (beta) edge[directed] (b1);
+	\draw (beta) edge[directed] (b2);
+	\draw (gamma) edge[directed] (c1);
+	\draw (gamma) edge[directed] (c2);
+\end{tikzpicture}
+\end{document}

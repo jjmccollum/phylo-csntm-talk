@@ -1,0 +1,38 @@
+\documentclass[tikz]{standalone}
+\usepackage{../sty/phylogenetic-diagrams} % Include the style file containing the code defining the structure and style of the document
+
+\begin{document}
+\begin{tikzpicture}[node distance=2.5cm]
+	\node[hypotheticalWit] (origin) at (0,2) {\textgreek{Ω}};
+	\node[hypotheticalWit] (archetype) at (0,0) {\textgreek{ω}};
+	\node[hypotheticalWit] (alpha) at (-2,-2) {\textgreek{α}};
+	\node[hypotheticalWit] (beta) at (2,-2) {\textgreek{β}};
+	\node[hypotheticalWit] (beta_alt) at (-2,-4) {\textgreek{β}′};
+	\node[extantWit] (a) at (-4,-4) {a};
+	\node[hypotheticalWit] (gamma) at (-2,-6) {\textgreek{γ}};
+	\node[extantWit] (b1) at (2,-6) {b\textsubscript{1}};
+	\node[extantWit] (b2) at (6,-6) {b\textsubscript{2}};
+	\node[extantWit] (c1) at (-3,-8) {c\textsubscript{1}};
+	\node[extantWit] (c2) at (-1,-8) {c\textsubscript{2}};
+	\draw (origin) edge[parallellowdirected,solid] (archetype);
+	\draw (origin) edge[parallelhighdirected,dashed] (archetype);
+	\draw (archetype) edge[parallellowdirected,solid] (alpha);
+	\draw (archetype) edge[parallelhighdirected,dashed] (alpha);
+	\draw (archetype) edge[parallellowdirected,solid] (beta);
+	\draw (archetype) edge[parallelhighundirected,dashed] (beta);
+	\draw (alpha) edge[parallellowdirected,solid] (a);
+	\draw (alpha) edge[parallelhighdirected,dashed] (a);
+	\draw (alpha) edge[parallellowundirected,solid] (beta_alt);
+	\draw (alpha) edge[parallelhighdirected,dashed] (beta_alt);
+	\draw (beta_alt) edge[parallellowdirected,solid] (gamma);
+	\draw (beta_alt) edge[parallelhighdirected,dashed] (gamma);
+	\draw (beta_alt) edge[parallelhighdirected,dashed] (b1);
+	\draw (beta) edge[parallellowdirected,solid] (b1);
+	\draw (beta) edge[parallellowdirected,solid] (b2);
+	\draw (beta) edge[parallelhighdirected,dashed] (b2);
+	\draw (gamma) edge[parallellowdirected,solid] (c1);
+	\draw (gamma) edge[parallelhighdirected,dashed] (c1);
+	\draw (gamma) edge[parallellowdirected,solid] (c2);
+	\draw (gamma) edge[parallelhighdirected,dashed] (c2);
+\end{tikzpicture}
+\end{document}

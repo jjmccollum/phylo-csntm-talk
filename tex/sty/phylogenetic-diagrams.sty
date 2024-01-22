@@ -1,0 +1,44 @@
+% Declare the package that this style file will produce, along with its formal name:
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{phylogenetic-diagrams}[2023/11/30 Phylogenetic Diagrams Style File]
+
+\usetikzlibrary{decorations,positioning}
+\usetikzlibrary{decorations.markings}
+
+\pgfdeclaredecoration{sl}{initial}{
+	\state{initial}[width=\pgfdecoratedpathlength-1sp]{
+		\pgfmoveto{\pgfpointorigin}
+	}
+	\state{final}{
+		\pgflineto{\pgfpointorigin}
+	}
+}
+
+\makeatletter\def\tikz@align@newline{\vphantom{bg}\pgfutil@protect\tikz@align@newline@}%to redefine new lines in tikz nodes
+
+\tikzset{witReading/.style={align=center,execute at end node=\vphantom{bg}}}
+\tikzset{extantWit/.style={draw,solid,circle,execute at end node=\vphantom{bg}}}
+\tikzset{hypotheticalWit/.style={draw,dashed,circle,execute at end node=\vphantom{bg}}}
+\tikzset{directed/.style={->,>=stealth,line width=1.0pt}}% for directed edges
+\tikzset{parallelhighundirected/.style={line width=1.0pt,decoration={sl,raise=2pt},decorate}}% for undirected higher edge in pairs of parallel edges
+\tikzset{parallellowundirected/.style={line width=1.0pt,decoration={sl,raise=-2pt},decorate}}% for undirected lower edge in pairs of parallel edges
+\tikzset{parallelhighdirected/.style={->,>=stealth,line width=1.0pt,decoration={sl,raise=2pt},decorate}}% for undirected higher edge in pairs of parallel edges
+\tikzset{parallellowdirected/.style={->,>=stealth,line width=1.0pt,decoration={sl,raise=-2pt},decorate}}% for undirected lower edge in pairs of parallel edges
+\RequirePackage{color} % for custom colors
+\definecolor{darkgreen}{RGB}{0,128,0}
+\RequirePackage{polyglossia} % for language-specific hyphenation and punctuation rules
+\setmainlanguage[variant=american]{english} % Specify main language of document (this will affect hyphentation and punctuation)
+\setotherlanguage[variant=polytonic]{greek} % Add any other languages that you plan to use in your thesis
+\setromanfont[Ligatures=Common, Numbers={Tabular,OldStyle}]{EBGaramond12}[
+	Extension=.otf,
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic
+]
+\newfontfamily\greekfont{EBGaramond12}[
+	Extension=.otf,
+	UprightFont=*-Regular,
+	ItalicFont=*-Italic
+]
+\renewcommand{\textgreek}[1]{{\selectlanguage{greek}#1}}
+\RequirePackage{realscripts} % Update \textsubscript and \textsuperscript to use true OpenType-accessed sub- and superscripts
+\endinput

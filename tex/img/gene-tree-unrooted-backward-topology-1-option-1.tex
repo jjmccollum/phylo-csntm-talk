@@ -1,0 +1,26 @@
+\documentclass[tikz]{standalone}
+\usepackage{../sty/phylogenetic-diagrams} % Include the style file containing the code defining the structure and style of the document
+
+\begin{document}
+\begin{tikzpicture}[node distance=2.5cm]
+	\node[witReading] (archetype) at (0,0) {\textgreek{ω}\\{\color{red}\textgreek{χριστου ιησου}}};
+	\node[witReading] (alpha) at (-4,-2) {\textgreek{α}\\{\color{red}\textgreek{χριστου ιησου}}};
+	\node[witReading] (beta) at (4,-2) {\textgreek{β}\\{\color{blue}\textgreek{ιησου χριστου}}};
+	\node[witReading] (a) at (-6,-4) {a\\{\color{red}\textgreek{χριστου ιησου}}};
+	\node[witReading] (gamma) at (-2,-4) {\textgreek{γ}\\{\color{red}\textgreek{χριστου ιησου}}};
+	\node[witReading] (b1) at (2,-4) {b\textsubscript{1}\\{\color{blue}\textgreek{ιησου χριστου}}};
+	\node[witReading] (b2) at (6,-4) {b\textsubscript{2}\\{\color{blue}\textgreek{ιησου χριστου}}};
+	\node[witReading] (c1) at (-3,-6) {c\textsubscript{1}\\{\color{darkgreen}\textgreek{χριστου}}};
+	\node[witReading] (c2) at (-1,-6) {c\textsubscript{2}\\{\color{red}\textgreek{χριστου ιησου}}};
+	\draw (archetype) edge[directed] (alpha);
+	\draw (archetype) edge[directed] (beta);
+	\path[decoration={markings, mark=at position .5  with {\node[transform shape] {|};}}] (archetype) edge[decorate] (beta);
+	\draw (alpha) edge[directed, decorate] (a);
+	\draw (alpha) edge[directed] (gamma);
+	\draw (beta) edge[directed] (b1);
+	\draw (beta) edge[directed] (b2);
+	\draw (gamma) edge[directed] (c1);
+	\path[decoration={markings, mark=at position .5  with {\node[transform shape] {|};}}] (gamma) edge[decorate] (c1);
+	\draw (gamma) edge[directed] (c2);
+\end{tikzpicture}
+\end{document}

@@ -72,8 +72,68 @@
 		\begin{itemize}
 			\item A stemma represents a hypothesis about transmission history
 			\item The goal is to determine which hypothesis (or hypotheses) best explain the extant data
-			\item To do this, we need a numerical metric or \textquote{score} for the fitness of a stemma
+			\item To do this, we need a numerical metric or \textquote{score} for the fitness of a given stemma
 		\end{itemize}
+	\end{frame}
+	\subsection{Parsimony}
+	\begin{frame}
+		\begin{itemize}
+			\item One such metric is \emph{parsimony}
+			\item The smallest number of times one reading has to change to another along the branches of the stemma
+			\item Motivated by Ockham's Razor
+			\item Given a candidate stemma, we calculate its parsimony score for each variation unit independently, then add up the results
+			\item Can be efficiently computed in a bottom-up fashion
+		\end{itemize}
+		\begin{center}
+			\setmainfont[Ligatures=Common]{EB Garamond}
+			\renewfontfamily\greekfont[Script=Greek]{EB Garamond}
+			\begin{tabular}{|l|l|}
+				\hline
+				Witness & Reading\\
+				\hline
+				\hline
+				a & {\color{red}\textgreek{χριστου ιησου}}\\
+				\hline
+				b\textsubscript{1} & {\color{blue}\textgreek{ιησου χριστου}}\\
+				\hline
+				b\textsubscript{2} & {\color{blue}\textgreek{ιησου χριστου}}\\
+				\hline
+				c\textsubscript{1} & {\color{darkgreen}\textgreek{χριστου}}\\
+				\hline
+				c\textsubscript{2} & {\color{red}\textgreek{χριστου ιησου}}\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\end{frame}
+	\begin{frame}
+		\begin{center}
+			Cost for stemma 1: \only<2-3>{\textbf{2}}\\
+			\vspace{\baselineskip}
+			\only<1>{
+				\includegraphics[scale=0.75]{../img/gene-tree-unrooted-forward-topology-1.pdf}
+			}
+			\only<2>{
+				\includegraphics[scale=0.75]{../img/gene-tree-unrooted-backward-topology-1-option-1.pdf}
+			}
+			\only<3>{
+				\includegraphics[scale=0.75]{../img/gene-tree-unrooted-backward-topology-1-option-2.pdf}
+			}
+		\end{center}
+	\end{frame}
+	\begin{frame}
+		\begin{center}
+			Cost for stemma 2: \only<2-3>{\textbf{3}}\\
+			\vspace{\baselineskip}
+			\only<1>{
+				\includegraphics[scale=0.75]{../img/gene-tree-unrooted-forward-topology-2.pdf}
+			}
+			\only<2>{
+				\includegraphics[scale=0.75]{../img/gene-tree-unrooted-backward-topology-2-option-1.pdf}
+			}
+			\only<3>{
+				\includegraphics[scale=0.75]{../img/gene-tree-unrooted-backward-topology-2-option-2.pdf}
+			}
+		\end{center}
 	\end{frame}
 	\section{CBGM}
 	\subsection{Fundamentals}

@@ -1,0 +1,27 @@
+\documentclass[tikz]{standalone}
+\usepackage{../sty/phylogenetic-diagrams} % Include the style file containing the code defining the structure and style of the document
+
+\begin{document}
+\begin{tikzpicture}[node distance=2.5cm]
+	\node[extantWit, minimum width=2.5cm] (rdg_1) at (0,0) {{\color{purple}\textgreek{ιησου}}};
+	\node[extantWit, minimum width=2.5cm] (rdg_2) at (4,0) {{\color{red}\textgreek{χριστου ιησου}}};
+	\node[extantWit, minimum width=2.5cm] (rdg_3) at (0,-4) {{\color{blue}\textgreek{ιησου χριστου}}};
+	\node[extantWit, minimum width=2.5cm] (rdg_4) at (4,-4) {{\color{darkgreen}\textgreek{χριστου}}};
+	\draw (rdg_1) edge[directed, in=120,out=150, loop] node[midway, above] {$0$} (rdg_1);
+	\draw (rdg_1) edge[directed, bend left=10] node[midway, above] {$3$} (rdg_2);
+	\draw (rdg_2) edge[directed, bend left=10] node[midway, below] {$10$} (rdg_1);
+	\draw (rdg_1) edge[directed, bend left=10] node[midway, right] {$3$} (rdg_3);
+	\draw (rdg_3) edge[directed, bend left=10] node[midway, left] {$2$} (rdg_1);
+	\draw (rdg_1) edge[directed, bend left=10] node[near start, above] {$5$} (rdg_4);
+	\draw (rdg_4) edge[directed, bend left=10] node[near start, below] {$5$} (rdg_1);
+	\draw (rdg_2) edge[directed, in=30,out=60, loop] node[midway, above] {$0$} (rdg_2);
+	\draw (rdg_2) edge[directed, bend left=10] node[near start, right] {$5$} (rdg_3);
+	\draw (rdg_3) edge[directed, bend left=10] node[near start, left] {$5$} (rdg_2);
+	\draw (rdg_2) edge[directed, bend left=10] node[midway, right] {$2$} (rdg_4);
+	\draw (rdg_4) edge[directed, bend left=10] node[midway, left] {$3$} (rdg_2);
+	\draw (rdg_3) edge[directed, in=210,out=240, loop] node[midway, below] {$0$} (rdg_3);
+	\draw (rdg_3) edge[directed, bend left=10] node[midway, above] {$10$} (rdg_4);
+	\draw (rdg_4) edge[directed, bend left=10] node[midway, below] {$3$} (rdg_3);
+	\draw (rdg_4) edge[directed, in=300,out=330, loop] node[midway, below] {$0$} (rdg_4);
+\end{tikzpicture}
+\end{document}

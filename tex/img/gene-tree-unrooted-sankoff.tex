@@ -1,24 +1,5 @@
 \documentclass[tikz]{standalone}
-\usetikzlibrary{decorations,positioning}
-\tikzset{witReading/.style={align=center}}
-\tikzset{directed/.style={->,>=stealth,line width=1.0pt}}% for directed edges
-\usepackage{color} % for custom colors
-\definecolor{darkgreen}{RGB}{0,128,0}
-\usepackage{polyglossia} % for language-specific hyphenation and punctuation rules
-\setmainlanguage[variant=american]{english} % Specify main language of document (this will affect hyphentation and punctuation)
-\setotherlanguage[variant=polytonic]{greek} % Add any other languages that you plan to use in your thesis
-\setromanfont[Ligatures=Common, Numbers={Tabular,OldStyle}]{EBGaramond12}[
-	Extension=.otf,
-	UprightFont=*-Regular,
-	ItalicFont=*-Italic
-]
-\newfontfamily\greekfont{EBGaramond12}[
-	Extension=.otf,
-	UprightFont=*-Regular,
-	ItalicFont=*-Italic
-]
-\renewcommand{\textgreek}[1]{{\selectlanguage{greek}#1}}
-\usepackage{realscripts} % Update \textsubscript and \textsuperscript to use true OpenType-accessed sub- and superscripts
+\usepackage{../sty/phylogenetic-diagrams} % Include the style file containing the code defining the structure and style of the document
 
 \begin{document}
 \begin{tikzpicture}[node distance=2.5cm]

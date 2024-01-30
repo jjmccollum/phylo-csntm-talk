@@ -1,0 +1,33 @@
+\PassOptionsToPackage{table}{xcolor}% to ensure that pgfplots uses table options for xcolor
+\documentclass[tikz]{standalone}
+\usepackage{../sty/phylogenetic-diagrams} % Include the style file containing the code defining the structure and style of the document
+
+\begin{document}
+\begin{tikzpicture}[node distance=2.5cm]
+	\node[witReading] (costs_rows) at (-6.5,2) {%
+		\begin{tabular}{r}
+			{\color{purple}\textgreek{ιησου}}\\
+			{\color{red}\textgreek{χριστου ιησου}}\\
+			{\color{blue}\textgreek{ιησου χριστου}}\\
+			{\color{darkgreen}\textgreek{χριστου}}
+		\end{tabular}
+	};
+	\node[witReading, rotate=45] (costs_col_1) at (-4.9,3.25) {{\color{purple}\textgreek{ιησου}}};
+	\node[witReading, rotate=45] (costs_col_2) at (-3.8,3.625) {{\color{red}\textgreek{χριστου ιησου}}};
+	\node[witReading, rotate=45] (costs_col_3) at (-3,3.625) {{\color{blue}\textgreek{ιησου χριστου}}};
+	\node[witReading, rotate=45] (costs_col_4) at (-2.5,3.375) {{\color{darkgreen}\textgreek{χριστου}}};
+	\node[witReading] (costs) at (-4,2) {%
+		\begin{tabular}{|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|}
+			\hline
+			\cellcolor{purple}{\color{white}$0$} & \cellcolor{purple}{\color{white}$3$} & \cellcolor{purple}{\color{white}$3$} & \cellcolor{purple}{\color{white}$5$}\\
+			\hline
+			$10$ & $0$ & $5$ & $2$\\
+			\hline
+			$2$ & $5$ & $0$ & $10$\\
+			\hline
+			$5$ & $3$ & $3$ & $0$\\
+			\hline
+		\end{tabular}
+	};
+\end{tikzpicture}
+\end{document}

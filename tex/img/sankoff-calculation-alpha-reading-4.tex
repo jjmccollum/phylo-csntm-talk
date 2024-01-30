@@ -1,0 +1,39 @@
+\PassOptionsToPackage{table}{xcolor}% to ensure that pgfplots uses table options for xcolor
+\documentclass[tikz]{standalone}
+\usepackage{../sty/phylogenetic-diagrams} % Include the style file containing the code defining the structure and style of the document
+
+\begin{document}
+\begin{tikzpicture}[node distance=2.5cm]
+	\node[witReading] (alpha) at (0,0) {\textgreek{α}\\
+		\begin{tabular}{|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|}
+			\hline
+			$8$ & $2$ & $12$ & \cellcolor{darkgreen}{\color{white}$6$}\\
+			\hline
+		\end{tabular}
+	};
+	\node[witReading] (a) at (-2,-4) {
+		\begin{tabular}{|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|}
+			\hline
+			$\infty$ & $0$ & $\infty$ & $\infty$\\
+			\hline
+		\end{tabular}\\
+		a
+	};
+	\node[witReading] (gamma) at (2,-4) {
+		\begin{tabular}{|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|wc{0.3333cm}|}
+			\hline
+			$8$ & $2$ & $15$ & $3$\\
+			\hline
+		\end{tabular}\\
+		\textgreek{γ}
+	};
+	\draw (1.15,-0.5) edge[directed, dashed] node[near end, left] {\small$5$} (-3.2,-3.5);
+	\draw (1.15,-0.5) edge[directed, darkgreen] node[near end, left] {\small$3$} (-2.4,-3.5);
+	\draw (1.15,-0.5) edge[directed, dashed] node[near end, left] {\small$3$} (-1.6,-3.5);
+	\draw (1.15,-0.5) edge[directed, dashed] node[near end, left] {\small$0$} (-0.8,-3.5);
+	\draw (1.15,-0.5) edge[directed] node[near end, left] {\small$5$} (0.8,-3.5);
+	\draw (1.15,-0.5) edge[directed] node[near end, left] {\small$3$} (1.6,-3.5);
+	\draw (1.15,-0.5) edge[directed] node[near end, left] {\small$3$} (2.4,-3.5);
+	\draw (1.15,-0.5) edge[directed, darkgreen] node[near end, left] {\small$0$} (3.2,-3.5);
+\end{tikzpicture}
+\end{document}

@@ -221,22 +221,67 @@
 	\end{frame}
 	\begin{frame}
 		\begin{itemize}
-			\item For each hypearchetype, compute the current minimum cost for each reading it could have based on the minimum costs of its children
-			\item For example, the minimum cost of {\renewfontfamily\greekfont[Script=Greek]{EB Garamond}\textgreek{γ}} reading \textgreek{ιησου} is the cost of the transition from \textgreek{ιησου} to \textgreek{χριστου} (in {\setmainfont{EB Garamond}c\textsubscript{1}}) plus the cost of the transition from \textgreek{ιησου} to \textgreek{χριστου ιησου} (in {\setmainfont{EB Garamond}c\textsubscript{2}}): $(5+0) + (3+0) = \mathbf{8}$
+			\item For each  hyparchetype, compute the current minimum cost for each reading it could have based on the minimum costs of its children
 		\end{itemize}
-		\vspace{0.025\baselineskip}
-		\begin{center}
-			\includegraphics[scale=0.5]{../img/gene-tree-unrooted-sankoff.pdf}
-		\end{center}
+		\begin{columns}[T]
+			\begin{column}{0.65\textwidth}
+				\includegraphics[scale=0.5]{../img/gene-tree-unrooted-sankoff.pdf}
+			\end{column}
+			\begin{column}{0.3\textwidth}
+				\only<1>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-1.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-gamma-reading-1.pdf}%
+				}%
+				\only<2>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-2.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-gamma-reading-2.pdf}%
+				}%
+				\only<3>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-3.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-gamma-reading-3.pdf}%
+				}%
+				\only<4>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-4.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-gamma-reading-4.pdf}%
+				}%
+			\end{column}
+		\end{columns}
 	\end{frame}
 	\begin{frame}
 		\begin{itemize}
-			\item For {\renewfontfamily\greekfont[Script=Greek]{EB Garamond}\textgreek{α}} reading \textgreek{ιησου}, it is $3+0$ (for the transition to \textgreek{χριστου ιησου} in {\setmainfont{EB Garamond}a}) plus $\min(0+8, 3+2, 3+15, 5+3)$ $= \min(8, 5, 18, 8)$ $= 5$ (for transitions to any of the readings in {\renewfontfamily\greekfont[Script=Greek]{EB Garamond}\textgreek{γ}}) $\Rightarrow \mathbf{8}$
-			\item Meanwhile, for {\renewfontfamily\greekfont[Script=Greek]{EB Garamond}\textgreek{α}} reading \textgreek{χριστου ιησου}, this is $(0+0)$ for  {\setmainfont{EB Garamond}a} plus $\min(10+8, 0+2, 5+15, 2+3) = \min(18,2,20,5) = 2$ for {\renewfontfamily\greekfont[Script=Greek]{EB Garamond}\textgreek{γ}} $\Rightarrow \mathbf{2}$
+			\item For each  hyparchetype, compute the current minimum cost for each reading it could have based on the minimum costs of its children
 		\end{itemize}
-		\begin{center}
-			\includegraphics[scale=0.5]{../img/gene-tree-unrooted-sankoff.pdf}
-		\end{center}
+		\begin{columns}[T]
+			\begin{column}{0.65\textwidth}
+				\includegraphics[scale=0.5]{../img/gene-tree-unrooted-sankoff.pdf}
+			\end{column}
+			\begin{column}{0.3\textwidth}
+				\only<1>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-1.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-alpha-reading-1.pdf}%
+				}%
+				\only<2>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-2.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-alpha-reading-2.pdf}%
+				}%
+				\only<3>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-3.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-alpha-reading-3.pdf}%
+				}%
+				\only<4>{%
+					\includegraphics[scale=0.5]{../img/sankoff-cost-matrix-reading-4.pdf}\\
+					\vspace{0.5\baselineskip}
+					\includegraphics[scale=0.5]{../img/sankoff-calculation-alpha-reading-4.pdf}%
+				}%
+			\end{column}
+		\end{columns}
 	\end{frame}
 	\begin{frame}
 		\begin{itemize}
@@ -647,8 +692,8 @@
 		\begin{itemize}
 			\item How does this differ from a phylogenetic stemma?
 			\begin{itemize}
-				\item Converging branches (reflecting contamination) are allowed
 				\item In practice, it takes much less time to produce a global stemma (minutes) than it does to do a satisfactory phylogenetic search for promising stemmata (> a day)
+				\item Converging branches (reflecting contamination) are allowed
 				\item No hyparchetypes, and texts found in later manuscripts can be ancestors to texts found in earlier manuscripts
 				\item Can it model a history of the text?
 			\end{itemize}

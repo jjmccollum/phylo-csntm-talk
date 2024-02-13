@@ -15,8 +15,8 @@ This work is licensed under a
 [cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
 [cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
 
-This is the accompanying slide deck for a lecture on phylogenetics and the CBGM for the staff at the [Center for the Study of New Testament Manuscripts](https://www.csntm.org/) (CSNTM) on 31 January 2024.
+This is the accompanying slide deck for an introductory lecture on phylogenetics and the Coherence-Based Genealogical Method (CBGM) for the staff at the [Center for the Study of New Testament Manuscripts](https://www.csntm.org/) (CSNTM) on 12 February 2024.
 
 ## Citing This Resource
 
-This resource can be cited with the DOI [TBD](https://doi.org/TBD).
+This resource can be cited with the DOI [10.17613/8q8j-3w77](https://doi.org/10.17613/8q8j-3w77).
